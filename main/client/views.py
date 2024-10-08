@@ -30,3 +30,17 @@ class DetailUpdateClientView(View):
         client = models.objects.get(id=id)
         return render(request, 'client/detail.html', {'client':client})
     
+    def post(self, request, id):
+        client = models.Client.objects.get(id=id)
+        client.first_name = request.POST.get('first-name')
+        client.last_name = request.POST.get('last-name')
+        client.phone = request.POST.get('phone')
+        client.passport = request.POST.get('passport')
+        client.save()
+        return redirect('main:home')
+    
+
+class DeleteClientView(View):
+    def get(self, request, id):
+        models.Client.objects.get(id=id).delete()
+        return redirect('main:home')

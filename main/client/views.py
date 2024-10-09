@@ -28,7 +28,7 @@ class ListClientView(View):
 class DetailUpdateClientView(View):
     def get(self, request, id):
         client = models.objects.get(id=id)
-        return render(request, 'client/detail.html', {'client':client})
+        return render(request, 'client/update.html', {'client':client})
     
     def post(self, request, id):
         client = models.Client.objects.get(id=id)

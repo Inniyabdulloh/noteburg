@@ -9,10 +9,12 @@ class CreateCategoryView(LoginRequiredMixin, View):
         return render(request, 'category/create.html')
     
     def post(self, request):
-        models.Category.objects.create(
-            name=request.POST.get('category')
-        )
-
+        try:
+            models.Category.objects.create(
+                name=request.POST.get('category')
+            )
+        except:
+            ...
         return redirect('main:home')
 
 
@@ -22,16 +24,16 @@ class ListCategoryView(View):
         return render(request, 'category/list.html', {'category_list':category_list})
 
 
-class DetailUpdateCategoryView(View):
+class UpdateCategoryView(View):
     def get(self, request, id):
         category = models.Category.objects.get(id=id)
-        return render(request, 'category/detail.html')
+        return render(request, 'category/update.html', {'category':category})
     
     def post(self, request, id):
         category = models.Category.objects.get(id=id)
-        category.name = request.POST.get('new-name')
+        category.name = request.POST.get('category')
         category.save()
-        return render('main:home')
+        return redirect('main:home')
     
 
 class DeleteCategoryView(View):

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/vendors/font-awesome.css' %}">
+{% endblock %}
+{% block content %}
+    <!-- Page Sidebar Ends-->
+    <div class="page-body">
+        <div class="container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3>Uy Tanla dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
+                            <li class="breadcrumb-item">Dashboard</li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- Bookmark Start-->
+                        <div class="bookmark">
+
+
+                            <ul>
+                                <li><a href="chat.html" data-container="body" data-bs-toggle="popover"
+                                       data-placement="top" title="" data-original-title="Chat"><i
+                                        data-feather="message-square"></i></a></li>
+                                <li><a href="product-page.html" data-container="body" data-bs-toggle="popover"
+                                       data-placement="top" title="" data-original-title="Icons"><i
+                                        data-feather="shopping-bag"> </i></a></li>
+                                <li><a href="user-profile.html" data-container="body" data-bs-toggle="popover"
+                                       data-placement="top" title="" data-original-title="Learning"><i
+                                        data-feather="users"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="bookmark-search"
+                                                                    data-feather="heart"></i></a>
+
+
+                                    <form class="form-inline search-form">
+                                        <div class="form-group form-control-search">
+                                            <input type="text" placeholder="Search..">
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <!-- Bookmark Ends-->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#            my code start #}
+        <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="card">
+                          <div class="card-header">
+                            <h5>Extra Large Tables</h5><span>Example of Extra large table, Add <code>.table-xl</code> class to the <code>.table</code> to create a table with extra large spacing. Extra larger table all rows have <code>1.25rem</code> height.</span>
+                          </div>
+                          <div class="table-responsive">
+                            <table class="table table-xl">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Category Name</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              {% for category in category_list %}
+                                <tr>
+                                  <th scope="row">{{ forloop.counter }}</th>
+                                  <td>{{ category.name }}</td>
+                                  <td>
+                                      <i class="fa fa-pencil"></i>
+                                      <i class="fa fa-trash"></i>
+                                  </td>
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        {#        my code end #}
+
+
+
+
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/notify/bootstrap-notify.min.js' %}"></script>
+    <script src="{% static 'js/icons/icons-notify.js' %}"></script>
+    <script src="{% static 'js/icons/icon-clipart.js' %}"></script>
+{% endblock %}
+
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ class LIstRoomView(View):
 class DetailUpdateView(View):
     def get(self, request, id):
         room = models.Room.objects.get(id=id)
-        return render(request, 'room/detail.html', {'room':room})
+        return render(request, 'room/update.html', {'room':room})
     
     def post(self, request, id):
         room = models.Room.objects.get(id=id)       
